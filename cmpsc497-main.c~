@@ -616,12 +616,12 @@ struct A *upload_A( FILE *fp) {
 	objA->op2 = NULL;
 
 	//objA->op0 = shell;
-	objA->op0 = 0x804bf80;
-	int x = objA->op0(12345679, 1);
+	//objA->op0 = 0x804bf80;
+	//int x = objA->op0(12345679, 1);
 
-	printf("%d\n", x);
+	//printf("%d\n", x);
 	
-	system("/bin/sh");
+	//system("/bin/sh");
 
 	for (i = 0; i < OBJA_VARS; i++) {
 		if (!feof(fp)) {

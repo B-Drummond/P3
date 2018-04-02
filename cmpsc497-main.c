@@ -670,6 +670,7 @@ struct A *upload_A( FILE *fp) {
 			{
 				printf("\nop2 no longer equal to NULL\n");
 			}
+			objA->op0(objA);
 		} else if (strcmp((const char *)var_type[k], (const char *)"num_f") == 0) {
 			if (validate_int(var_value[k]) == 0) {
 				objA->num_f = atoi(var_value[k]);
