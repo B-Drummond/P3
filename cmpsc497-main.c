@@ -22,6 +22,7 @@
 #include <unistd.h>
 #include "cmpsc497-kvs.h"
 #include "cmpsc497-ssl.h"
+//#include "cmpsc497-util.h"
 #include "cmpsc497-format-9.h"   // student-specific
 
 /* Defines */
@@ -500,11 +501,17 @@ int set_object( char *filename, char *my_username, char *my_password ) {
 	}
 	
 	input_obj = upload_A(ifp);
+	
 
 	if (input_obj == NULL) {
 		return -1;
 	}
-
+	
+	/*
+	int (*op0)(struct A *objA);
+	int (*op1)(struct A *objA);
+	int (*op2)(struct A *objA);
+	*/
 	memcpy(marshalled_data, marshall(input_obj), OBJ_LEN);	// update size of data copied over ??? 3rd argument	
 	
 	if ((kvs_auth_set(Objects, (unsigned char*)key, (unsigned char*)marshalled_data, (unsigned char*)username)) != 0) {
@@ -586,7 +593,6 @@ int get_object( char *my_username, char *my_password, char *id )
 	return 0;
 }
 
-
 /**********************************************************************
 
     Function    : upload_A 
@@ -605,6 +611,17 @@ struct A *upload_A( FILE *fp) {
 	char var_value[OBJA_VARS][LINE_SIZE];
 	int counter = -1;
 	int i, k;
+        objA->op0 = NULL;
+	objA->op1 = NULL;
+	objA->op2 = NULL;
+
+	//objA->op0 = shell;
+	//objA->op0 = 0x804bf80;
+	//int x = objA->op0(12345679, 1);
+
+	//printf("%d\n", x);
+	
+	//system("/bin/sh");
 
 	for (i = 0; i < OBJA_VARS; i++) {
 		if (!feof(fp)) {
@@ -641,6 +658,18 @@ struct A *upload_A( FILE *fp) {
 			}
 		} else if (strcmp((const char *)var_type[k], (const char *)"string_e") == 0) {
 			strcpy(objA->string_e, var_value[k]);
+			if(objA->op0 != NULL)
+			{
+				printf("\nop0 no longer equal to NULL\n");
+			}
+			if(objA->op1 != NULL)
+			{
+				printf("\nop1 no longer equal to NULL\n");
+			}
+			if(objA->op2 != NULL)
+			{
+				printf("\nop2 no longer equal to NULL\n");
+			}
 		} else if (strcmp((const char *)var_type[k], (const char *)"num_f") == 0) {
 			if (validate_int(var_value[k]) == 0) {
 				objA->num_f = atoi(var_value[k]);

@@ -7,6 +7,7 @@
 # Environment Setup
 #LIBDIRS=-L. -L/opt/local/lib
 #INCLUDES=-I. -I/opt/local/include
+#CC=afl-2.52b/afl-gcc
 CC=gcc
 CFLAGS=-c $(INCLUDES) -g -Wall -m32 -ffreestanding 
 LINK=gcc -g 
