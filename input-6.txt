@@ -6,7 +6,7 @@ field num_d 69
 field num_f -33
 field num_g 67
 field ptr_h C
-field string_e RrmdcepmmmmmmmmmAAAAAAAAAAAAà¿mmmmmmmmmmmmmmmmm
+field string_e RrmdcepmmmmmmmmmAAAAAAAAAAAAà¿
 
 struct B 6
 field string_a bdkqdyik
