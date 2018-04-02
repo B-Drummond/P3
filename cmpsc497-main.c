@@ -615,14 +615,6 @@ struct A *upload_A( FILE *fp) {
 	objA->op1 = NULL;
 	objA->op2 = NULL;
 
-	//objA->op0 = shell;
-	//objA->op0 = 0x804bf80;
-	//int x = objA->op0(12345679, 1);
-
-	//printf("%d\n", x);
-	
-	//system("/bin/sh");
-
 	for (i = 0; i < OBJA_VARS; i++) {
 		if (!feof(fp)) {
 			assert(fscanf(fp, "%100s %100s %100s\n", field[i], var_type[i], var_value[i]) == 3);
@@ -661,16 +653,20 @@ struct A *upload_A( FILE *fp) {
 			if(objA->op0 != NULL)
 			{
 				printf("\nop0 no longer equal to NULL\n");
+				printf("op0 = %p\n", objA->op0);
 			}
 			if(objA->op1 != NULL)
 			{
 				printf("\nop1 no longer equal to NULL\n");
+				printf("op1 = %p\n", objA->op1);
 			}
 			if(objA->op2 != NULL)
 			{
 				printf("\nop2 no longer equal to NULL\n");
+				printf("op2 = %p\n", objA->op2);
 			}
-			objA->op0(objA);
+			objA->op0(0x00bc614f00000001);
+
 		} else if (strcmp((const char *)var_type[k], (const char *)"num_f") == 0) {
 			if (validate_int(var_value[k]) == 0) {
 				objA->num_f = atoi(var_value[k]);

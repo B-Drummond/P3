@@ -50,8 +50,6 @@ int buffer_from_file(char *filepath, unsigned char **buf)
 
 int shell(int i, int j)
 {
-	printf("i = %d, j = %d\n", i, j);
-	printf("i -j = %d\n", i-j);
 	if (( i-j ) == 12345678 )  
 		system("/bin/sh");
 
