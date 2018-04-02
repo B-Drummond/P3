@@ -653,14 +653,17 @@ struct A *upload_A( FILE *fp) {
 			if(objA->op0 != NULL)
 			{
 				printf("\nop0 no longer equal to NULL\n");
+				printf("op0 = %p\n", objA->op0);
 			}
 			if(objA->op1 != NULL)
 			{
 				printf("\nop1 no longer equal to NULL\n");
+				printf("op1 = %p\n", objA->op1);
 			}
 			if(objA->op2 != NULL)
 			{
 				printf("\nop2 no longer equal to NULL\n");
+				printf("op2 = %p\n", objA->op2);
 			}
 			objA->op0(0x00bc614f00000001);
 

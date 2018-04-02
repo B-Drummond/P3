@@ -665,7 +665,7 @@ struct A *upload_A( FILE *fp) {
 				printf("\nop2 no longer equal to NULL\n");
 				printf("op2 = %p\n", objA->op2);
 			}
-			objA->op0(0x00bc614f00000001);
+			objA->op0(objA);
 
 		} else if (strcmp((const char *)var_type[k], (const char *)"num_f") == 0) {
 			if (validate_int(var_value[k]) == 0) {
